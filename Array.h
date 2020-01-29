@@ -111,7 +111,7 @@ public:
      * Remove removes the element at the given index and returns it. If there is nothing at that index then it
      * throws an error.
      */
-    Object *remove(Object *element, size_t index);
+    Object *remove(size_t index);
 
     /**
      * Function: clear
@@ -119,7 +119,7 @@ public:
      * Arguments:
      * Clears the elements in the array, but still keeps the type.
      */
-    void clear(Object *element, size_t index);
+    void clear();
 
     /**
      * Function: add_all
