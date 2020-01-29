@@ -303,7 +303,7 @@ public:
      *       size_t index : index in the array
      * Get returns the boolean at the given index or errors if that index does not exist.
      */
-    bool *get(size_t index);
+    bool get(size_t index);
 
     /**
      * Function: push_front
