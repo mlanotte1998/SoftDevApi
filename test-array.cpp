@@ -59,7 +59,8 @@ void test_object_array() {
     t_true(a1->get(1)->equals(o2));
     t_true(a1->get(2)->equals(o1));
     t_true(a1->getLength() == 3);
-    Array *a2 = new Array(o1);
+    Array *a2 = new Array();
+    a1->push_back(o1);
     a2->push_back(o2);
     a1->add_all(a2);
     t_true(a1->get(0)->equals(o4));
@@ -70,7 +71,7 @@ void test_object_array() {
     t_true(a1->getLength() == 5);
     a1->clear();
     t_true(a1->getLength() == 0);
-    t_false(a1->hash() == a2->hash())
+    t_false(a1->hash() == a2->hash());
     delete a1;
     delete a2;
     delete o1;
@@ -111,7 +112,8 @@ void test_string_array() {
     t_true(a1->get(1)->equals(s2));
     t_true(a1->get(2)->equals(s1));
     t_true(a1->getLength() == 3);
-    Array *a2 = new Array(s1);
+    Array *a2 = new Array();
+    a2->push_back(s1);
     a2->push_back(s2);
     a1->add_all(a2);
     t_true(a1->get(0)->equals(s4));
@@ -284,6 +286,9 @@ void test_float_array() {
 int main() {
     test_object_array();
     test_string_array();
+    test_bool_array();
+    test_int_array();
+    test_float_array();
     return 0;
 }
 
