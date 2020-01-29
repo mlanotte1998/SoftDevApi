@@ -28,54 +28,6 @@ void t_false(bool p) {
     }
 }
 
-void test_object() {
-    Object *o1 = new Object();
-    Object *o2 = new Object();
-    Object *o3 = o1;
-    t_true(o1->equals(o1));
-    t_true(o1->equals(o3));
-    t_false(o1->equals(o2));
-    t_false(o2->equals(o3));
-    delete o1;
-    delete o2;
-    delete o3;
-    OK("Object Tests Passed");
-}
-
-void test_string() {
-    String *s1 = new String("hello");
-    String *s2 = new String("world");
-    String *s3 = o1;
-    String *s4 = new String("helloworld");
-    String *s5 = s1->concat(s2);
-    t_true(s1->equals(s1));
-    t_true(s1->equals(s3));
-    t_false(s1->equals(s2));
-    t_false(s2->equals(s3));
-    t_true(s4->equals(s5));
-    t_false(s5->equals(s3));
-    t_true(s2->size() == 5);
-    t_true(s1->compare(s2) < 0);
-    t_true(s1->compare(s3) < 0);
-    t_false(s2->compare(s3) <= 0);
-    char* helloDup = s1->to_string();
-    t_true(helloDup[0] == 'h');
-    t_true(helloDup[1] == 'e');
-    t_true(helloDup[2] == 'l');
-    t_true(helloDup[3] == 'l');
-    t_true(helloDup[4] == 'o');
-    String *s1Copy = new String("hello");
-    t_true(s1->hash_me_() == s1Copy->hash_me_());
-    delete s1;
-    delete s2;
-    delete s3;
-    delete s4;
-    delete s5;
-    delete[] helloDup;
-    delete s1Copy;
-    OK("Object Tests Passed");
-}
-
 void test_object_array() {
     Object *o1 = new Object();
     Object *o2 = new Object();
