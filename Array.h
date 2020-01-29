@@ -217,7 +217,7 @@ public:
      *       size_t index : index of element to be replaced
      * Update takes the given int and replaces the int at the given index with this new int.
      */
-    void update(Object *element, size_t index);
+    void update(int element, size_t index);
 
     /**
      * Function: remove
@@ -341,7 +341,7 @@ public:
      *       size_t index : index of element to be replaced
      * Update takes the given bool and replaces the bool at the given index with this new bool.
      */
-    void update(Object *element, size_t index);
+    void update(bool element, size_t index);
 
     /**
      * Function: remove
@@ -463,9 +463,9 @@ public:
      * Arguments:
      *       float element : element to be added
      *       size_t index : index of element to be replaced
-     * Update takes the given float and replaces the int at the given index with this new float.
+     * Update takes the given float and replaces the float at the given index with this new float.
      */
-    void update(Object *element, size_t index);
+    void update(float element, size_t index);
 
     /**
      * Function: remove
