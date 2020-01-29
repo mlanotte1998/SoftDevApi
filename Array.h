@@ -8,11 +8,6 @@
 class Array : public Object {
 public:
 
-    // Internal Object Hierarchy : String -> Float -> Integer -> Bool
-
-    Object **array_; // the inner array of Objects pointers.
-    size_t length_; // the length of the array.
-
     /**
      * Constructor: default
      * Arguments:
