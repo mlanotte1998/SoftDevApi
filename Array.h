@@ -59,6 +59,13 @@ public:
     Object *get(size_t index);
 
     /**
+     * Function: contains
+     * @param element the object that is being looked for in the array.
+     * @return Returns a boolean value, true if the element is in the array, false otherwise.
+     */
+    bool contains(Object* element);
+
+    /**
      * Function: push_front
      * Returns: void
      * Arguments:
@@ -180,6 +187,13 @@ public:
      * Get returns the int at the given index or errors if that index does not exist.
      */
     int get(size_t index);
+
+    /**
+     * Function: contains
+     * @param element the int that is being looked for in the array.
+     * @return Returns a boolean value, true if the element is in the array, false otherwise.
+     */
+    bool contains(int element);
 
     /**
      * Function: push_front
@@ -306,6 +320,13 @@ public:
     bool get(size_t index);
 
     /**
+     * Function: contains
+     * @param element the bool that is being looked for in the array.
+     * @return Returns a boolean value, true if the element is in the array, false otherwise.
+     */
+    bool contains(bool element);
+
+    /**
      * Function: push_front
      * Returns: void
      * Arguments:
@@ -428,6 +449,13 @@ public:
      * Get returns the float at the given index or errors if that index does not exist.
      */
     float get(size_t index);
+
+    /**
+     * Function: contains
+     * @param element the float that is being looked for in the array.
+     * @return Returns a boolean value, true if the element is in the array, false otherwise.
+     */
+    bool contains(float element);
 
     /**
      * Function: push_front

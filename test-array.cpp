@@ -34,12 +34,12 @@ void t_false(bool p) {
 * @param f2 the second float to compare.
 */
 bool float_equal(float f1, float f2) {
-  float eps = 0.0000001;
-  if (f1 > f2) {
-    return f1 - f2 < eps;
-  } else {
-    return f2 - f1 < eps;
-  }
+    float eps = 0.0000001;
+    if (f1 > f2) {
+        return f1 - f2 < eps;
+    } else {
+        return f2 - f1 < eps;
+    }
 }
 
 void test_object_array() {
@@ -83,6 +83,8 @@ void test_object_array() {
     t_true(a1->get(3)->equals(o1));
     t_true(a1->get(4)->equals(o2));
     t_true(a1->getLength() == 5);
+    t_true(a1->contains(o4));
+    t_false(a2->contains(o4));
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
     a1->clear();
@@ -138,6 +140,8 @@ void test_string_array() {
     t_true(a1->get(3)->equals(s1));
     t_true(a1->get(4)->equals(s2));
     t_true(a1->getLength() == 5);
+    t_true(a1->contains(s4));
+    t_false(a2->contains(s4));
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
     a1->clear();
@@ -153,6 +157,8 @@ void test_string_array() {
 void test_bool_array() {
     BoolArray *a1 = new BoolArray();
     a1->push_back(true);
+    t_true(a1->contains(true));
+    t_false(a1->contains(false));
     t_true(a1->getLength() == 1);
     t_true(a1->get(0));
     a1->push_back(false);
@@ -289,6 +295,8 @@ void test_float_array() {
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
+    t_true(a1->contains(5.999));
+    t_false(a2->contains(5.999));
     FloatArray *a3 = new FloatArray();
     a3->push_back(10.2);
     a3->push_back(90.12345);
