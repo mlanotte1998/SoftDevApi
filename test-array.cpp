@@ -1,8 +1,8 @@
 //lang::CwC
 #include <stdio.h>
-#include "Object.h"
-#include "String.h"
-#include "Array.h"
+#include "sbject.h"
+#include "string.h"
+#include "array.h"
 
 void FAIL() { exit(1); }
 
