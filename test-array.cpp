@@ -84,6 +84,8 @@ void test_object_array() {
     t_true(a1->get(4)->equals(o2));
     t_true(a1->getLength() == 5);
     t_true(a1->contains(o4));
+    t_true(a1->index_of(o1) == 2);
+    t_true(a2->index_of(o4) == -1);
     t_false(a2->contains(o4));
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
@@ -142,6 +144,8 @@ void test_string_array() {
     t_true(a1->getLength() == 5);
     t_true(a1->contains(s4));
     t_false(a2->contains(s4));
+    t_true(a1->index_of(s1) == 2);
+    t_true(a2->index_of(s4) == -1);
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
     a1->clear();
@@ -159,6 +163,8 @@ void test_bool_array() {
     a1->push_back(true);
     t_true(a1->contains(true));
     t_false(a1->contains(false));
+    t_true(a1->index_of(true) == 0);
+    t_true(a2->index_of(false) == -1);
     t_true(a1->getLength() == 1);
     t_true(a1->get(0));
     a1->push_back(false);
@@ -245,6 +251,10 @@ void test_int_array() {
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
+    t_true(a1->contains(5));
+    t_false(a2->contains(5));
+    t_true(a1->index_of(70) == 1);
+    t_true(a2->index_of(30) == -1);
     IntArray *a3 = new IntArray();
     a3->push_back(10);
     a3->push_back(90);
@@ -297,6 +307,8 @@ void test_float_array() {
     t_true(a1->equals(a1));
     t_true(a1->contains(5.999));
     t_false(a2->contains(5.999));
+    t_true(a1->index_of(10.2) == 3);
+    t_true(a2->index_of(5.999) == -1);
     FloatArray *a3 = new FloatArray();
     a3->push_back(10.2);
     a3->push_back(90.12345);

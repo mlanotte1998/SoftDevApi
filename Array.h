@@ -66,6 +66,13 @@ public:
     bool contains(Object* element);
 
     /**
+    * Function: index_of
+    * @param element the object that is being looked for in the array.
+    * @return Returns a int value of the first index the object is at, returns -1 if no index for the object is found.
+    */
+    int index_of(Object* element);
+
+    /**
      * Function: push_front
      * Returns: void
      * Arguments:
@@ -194,6 +201,13 @@ public:
      * @return Returns a boolean value, true if the element is in the array, false otherwise.
      */
     bool contains(int element);
+
+    /**
+    * Function: index_of
+    * @param element the int that is being looked for in the array.
+    * @return Returns a int value of the first index the int is at, returns -1 if no index for the int is found.
+    */
+    int index_of(int element);
 
     /**
      * Function: push_front
@@ -325,6 +339,20 @@ public:
      * @return Returns a boolean value, true if the element is in the array, false otherwise.
      */
     bool contains(bool element);
+
+    /**
+    * Function: index_of
+    * @param element the float that is being looked for in the array.
+    * @return Returns a int value of the first index the float is at, returns -1 if no index for the float is found.
+    */
+    int index_of(float element);
+
+    /**
+    * Function: index_of
+    * @param element the bool that is being looked for in the array.
+    * @return Returns a int value of the first index the bool is at, returns -1 if no index for the bool is found.
+    */
+    int index_of(bool element);
 
     /**
      * Function: push_front
