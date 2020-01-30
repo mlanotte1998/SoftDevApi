@@ -84,7 +84,7 @@ void test_object_array() {
 void test_string_array() {
     String *s1 = new String("hello");
     String *s2 = new String("world");
-    String *s3 = o1;
+    String *s3 = s1;
     String *s4 = new String("helloworld");
     Array *a1 = new Array();
     a1->push_back(s1);
@@ -145,7 +145,7 @@ void test_bool_array() {
     a1->push_front(true);
     t_true(a1->get(0));
     t_true(a1->get(1));
-    t_true(!a1->get(2)));
+    t_true(!a1->get(2));
     t_true(a1->getLength() == 3);
     a1->remove(2);
     t_true(a1->get(0));
@@ -172,7 +172,7 @@ void test_bool_array() {
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a2));
-    BoolArray a3 = new BoolArray();
+    BoolArray *a3 = new BoolArray();
     a3->push_back(false);
     a3->push_back(true);
     t_true(a2->equals(a3));
@@ -190,7 +190,7 @@ void test_int_array() {
     t_true(a1->get(0) == 50);
     a1->push_back(20);
     t_true(a1->get(0) == 50);
-    t_true(a1->get(1) 20);
+    t_true(a1->get(1) == 20);
     t_true(a1->getLength() == 2);
     a1->push_front(70);
     t_true(a1->get(0) == 70);
@@ -222,7 +222,7 @@ void test_int_array() {
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a2));
-    IntArray a3 = new IntArray();
+    IntArray *a3 = new IntArray();
     a3->push_back(10);
     a3->push_back(90);
     t_true(a2->equals(a3));
@@ -260,7 +260,7 @@ void test_float_array() {
     t_true(a1->get(1) == 70.1);
     t_true(a1->get(2) == 30.45);
     t_true(a1->getLength() == 3);
-    IntArray *a2 = new IntArray();
+    FloatArray *a2 = new FloatArray();
     a2->push_back(10.2);
     a2->push_back(90.12345);
     a1->add_all(a2);
@@ -272,7 +272,7 @@ void test_float_array() {
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a2));
-    FloatArray a3 = new FloatArray();
+    FloatArray *a3 = new FloatArray();
     a3->push_back(10.2);
     a3->push_back(90.12345);
     t_true(a2->equals(a3));
