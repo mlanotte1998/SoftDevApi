@@ -1,6 +1,6 @@
 //lang::CwC
 #include <stdio.h>
-#include "sbject.h"
+#include "object.h"
 #include "string.h"
 #include "array.h"
 
@@ -26,6 +26,20 @@ void t_false(bool p) {
     } else {
         printf("Test Passed\n");
     }
+}
+
+/**
+* Determine if these two floats are equal with respect to eps.
+* @param f1 the first float to compare.
+* @param f2 the second float to compare.
+*/
+bool float_equal(float f1, float f2) {
+  float eps = 0.0000001;
+  if (f1 > f2) {
+    return f1 - f2 < eps;
+  } else {
+    return f2 - f1 < eps;
+  }
 }
 
 void test_object_array() {
@@ -74,11 +88,11 @@ void test_object_array() {
     a1->clear();
     t_true(a1->getLength() == 0);
     t_false(a1->hash() == a2->hash());
+
     delete a1;
     delete a2;
     delete o1;
     delete o2;
-    delete o3;
     delete o4;
     OK("Object Tests Passed");
 }
@@ -132,7 +146,6 @@ void test_string_array() {
     delete a2;
     delete s1;
     delete s2;
-    delete s3;
     delete s4;
     OK("String Array Tests Passed");
 }
@@ -241,38 +254,38 @@ void test_float_array() {
     FloatArray *a1 = new FloatArray();
     a1->push_back(50.5);
     t_true(a1->getLength() == 1);
-    t_true(a1->get(0) == 50.5);
+    t_true(float_equal(a1->get(0), 50.5));
     a1->push_back(20);
-    t_true(a1->get(0) == 50.5);
+    t_true(float_equal(a1->get(0), 50.5));
     t_true(a1->get(1) == 20);
     t_true(a1->getLength() == 2);
     a1->push_front(70.1);
-    t_true(a1->get(0) == 70.1);
-    t_true(a1->get(1) == 50.5);
+    t_true(float_equal(a1->get(0), 70.1));
+    t_true(float_equal(a1->get(1), 50.5));
     t_true(a1->get(2) == 20);
     t_true(a1->getLength() == 3);
     a1->remove(1);
-    t_true(a1->get(0) == 70.1);
+    t_true(float_equal(a1->get(0), 70.1));
     t_true(a1->get(1) == 20);
     t_true(a1->getLength() == 2);
     a1->update(30.45, 1);
-    t_true(a1->get(0) == 70.1);
-    t_true(a1->get(1) == 30.45);
+    t_true(float_equal(a1->get(0), 70.1));
+    t_true(float_equal(a1->get(1), 30.45));
     t_true(a1->getLength() == 2);
     a1->insert(5.999, 0);
-    t_true(a1->get(0) == 5.999);
-    t_true(a1->get(1) == 70.1);
-    t_true(a1->get(2) == 30.45);
+    t_true(float_equal(a1->get(0), 5.999));
+    t_true(float_equal(a1->get(1), 70.1));
+    t_true(float_equal(a1->get(2), 30.45));
     t_true(a1->getLength() == 3);
     FloatArray *a2 = new FloatArray();
     a2->push_back(10.2);
     a2->push_back(90.12345);
     a1->add_all(a2);
-    t_true(a1->get(0) == 5.999);
-    t_true(a1->get(1) == 70.1);
-    t_true(a1->get(2) == 30.45);
-    t_true(a1->get(3) == 10.2);
-    t_true(a1->get(4) == 90.12345);
+    t_true(float_equal(a1->get(0), 5.999));
+    t_true(float_equal(a1->get(1), 70.1));
+    t_true(float_equal(a1->get(2), 30.45));
+    t_true(float_equal(a1->get(3), 10.2));
+    t_true(float_equal(a1->get(4), 90.12345));
     t_true(a1->getLength() == 5);
     t_false(a1->equals(a2));
     t_true(a1->equals(a1));
@@ -295,4 +308,3 @@ int main() {
     test_float_array();
     return 0;
 }
-
